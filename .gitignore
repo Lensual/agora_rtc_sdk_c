@@ -10,10 +10,7 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
-
-*.cmake
-DartConfiguration.tcl
-null.d
+CMakeUserPresets.json
 
 # vscode
 build
@@ -23,6 +20,7 @@ build
 
 # bin
 libagora_rtc_sdk_c.a
+libagora_rtc_sdk_c.so
 
 # agora sdk
-agora_rtc_sdk-prefix
+agora_rtc_sdk_download-prefix
