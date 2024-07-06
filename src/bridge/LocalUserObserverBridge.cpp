@@ -4,7 +4,10 @@ void LocalUserObserverBridge::onAudioTrackPublishStart(agora_refptr<ILocalAudioT
 {
   if (cbs_.onAudioTrackPublishStart != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onAudioTrackPublishStart(this, this->userData_, (C_ILocalAudioTrack *)audioTrack.get());
   }
 }
@@ -18,7 +21,10 @@ void LocalUserObserverBridge::onAudioTrackPublishSuccess(agora_refptr<ILocalAudi
 {
   if (cbs_.onAudioTrackPublishSuccess != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onAudioTrackPublishSuccess(this, this->userData_, (C_ILocalAudioTrack *)audioTrack.get());
   }
 }
@@ -27,7 +33,10 @@ void LocalUserObserverBridge::onAudioTrackUnpublished(agora_refptr<ILocalAudioTr
 {
   if (cbs_.onAudioTrackUnpublished != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onAudioTrackUnpublished(this, this->userData_, (C_ILocalAudioTrack *)audioTrack.get());
   }
 }
@@ -43,7 +52,10 @@ void LocalUserObserverBridge::onAudioTrackPublicationFailure(agora_refptr<ILocal
 {
   if (cbs_.onAudioTrackPublicationFailure != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onAudioTrackPublicationFailure(this, this->userData_, (C_ILocalAudioTrack *)audioTrack.get(), C_ERROR_CODE_TYPE(error));
   }
 }
@@ -70,7 +82,10 @@ void LocalUserObserverBridge::onRemoteAudioTrackStatistics(agora_refptr<rtc::IRe
 {
   if (cbs_.onRemoteAudioTrackStatistics != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onRemoteAudioTrackStatistics(this, this->userData_, (C_ILocalAudioTrack *)audioTrack.get(), (const C_RemoteAudioTrackStats *)&stats);
   }
 }
@@ -88,7 +103,10 @@ void LocalUserObserverBridge::onUserAudioTrackSubscribed(user_id_t userId,
 {
   if (cbs_.onUserAudioTrackSubscribed != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onUserAudioTrackSubscribed(this, this->userData_, C_user_id_t(userId), (C_IRemoteAudioTrack *)audioTrack.get());
   }
 }
@@ -110,7 +128,10 @@ void LocalUserObserverBridge::onUserAudioTrackStateChanged(user_id_t userId,
 {
   if (cbs_.onUserAudioTrackStateChanged != nullptr)
   {
-    audioTrack->AddRef();
+    if (audioTrack.get() != nullptr)
+    {
+      audioTrack->AddRef();
+    }
     cbs_.onUserAudioTrackStateChanged(this, this->userData_,
                                       C_user_id_t(userId),
                                       (C_IRemoteAudioTrack *)audioTrack.get(),
@@ -124,7 +145,10 @@ void LocalUserObserverBridge::onVideoTrackPublishStart(agora_refptr<ILocalVideoT
 {
   if (cbs_.onVideoTrackPublishStart != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onVideoTrackPublishStart(this, this->userData_,
                                   (C_ILocalVideoTrack *)videoTrack.get());
   }
@@ -138,7 +162,10 @@ void LocalUserObserverBridge::onVideoTrackPublishSuccess(agora_refptr<ILocalVide
 {
   if (cbs_.onVideoTrackPublishSuccess != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onVideoTrackPublishSuccess(this, this->userData_,
                                     (C_ILocalVideoTrack *)videoTrack.get());
   }
@@ -155,7 +182,10 @@ void LocalUserObserverBridge::onVideoTrackPublicationFailure(agora_refptr<ILocal
 {
   if (cbs_.onVideoTrackPublicationFailure != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onVideoTrackPublicationFailure(this, this->userData_,
                                         (C_ILocalVideoTrack *)videoTrack.get(),
                                         C_ERROR_CODE_TYPE(error));
@@ -166,7 +196,10 @@ void LocalUserObserverBridge::onVideoTrackUnpublished(agora_refptr<ILocalVideoTr
 {
   if (cbs_.onVideoTrackUnpublished != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onVideoTrackUnpublished(this, this->userData_,
                                  (C_ILocalVideoTrack *)videoTrack.get());
   }
@@ -188,7 +221,10 @@ void LocalUserObserverBridge::onLocalVideoTrackStateChanged(agora_refptr<rtc::IL
 {
   if (cbs_.onLocalVideoTrackStateChanged != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onLocalVideoTrackStateChanged(this, this->userData_,
                                        (C_ILocalVideoTrack *)videoTrack.get(),
                                        C_LOCAL_VIDEO_STREAM_STATE(state),
@@ -207,7 +243,10 @@ void LocalUserObserverBridge::onLocalVideoTrackStatistics(agora_refptr<rtc::ILoc
 {
   if (cbs_.onLocalVideoTrackStatistics != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onLocalVideoTrackStatistics(this, this->userData_,
                                      (C_ILocalVideoTrack *)videoTrack.get(),
                                      (const C_LocalVideoTrackStats *)&stats);
@@ -229,7 +268,10 @@ void LocalUserObserverBridge::onUserVideoTrackSubscribed(user_id_t userId, Video
 {
   if (cbs_.onUserVideoTrackSubscribed != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onUserVideoTrackSubscribed(this, this->userData_,
                                     C_user_id_t(userId),
                                     *(C_VideoTrackInfo *)&trackInfo,
@@ -254,7 +296,10 @@ void LocalUserObserverBridge::onUserVideoTrackStateChanged(user_id_t userId,
 {
   if (cbs_.onUserVideoTrackStateChanged != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onUserVideoTrackStateChanged(this, this->userData_,
                                       C_user_id_t(userId),
                                       (C_IRemoteVideoTrack *)videoTrack.get(),
@@ -295,7 +340,10 @@ void LocalUserObserverBridge::onRemoteVideoTrackStatistics(agora_refptr<rtc::IRe
 {
   if (cbs_.onRemoteVideoTrackStatistics != nullptr)
   {
-    videoTrack->AddRef();
+    if (videoTrack.get() != nullptr)
+    {
+      videoTrack->AddRef();
+    }
     cbs_.onRemoteVideoTrackStatistics(this, this->userData_,
                                       (C_IRemoteVideoTrack *)videoTrack.get(),
                                       (const C_RemoteVideoTrackStats *)&stats);
