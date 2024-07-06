@@ -139,12 +139,15 @@ int C_IAgoraService_setLogFilter(C_IAgoraService *this_, unsigned int filters)
   return ((IAgoraService *)(this_))->setLogFilter(filters);
 }
 
-C_IRtcConnection* C_IAgoraService_createRtcConnection(C_IAgoraService *this_,
-                                                   const struct C_RtcConnectionConfiguration *cfg)
+C_IRtcConnection *C_IAgoraService_createRtcConnection(C_IAgoraService *this_,
+                                                      const struct C_RtcConnectionConfiguration *cfg)
 {
   auto refptr = ((IAgoraService *)(this_))->createRtcConnection(*(const RtcConnectionConfiguration *)cfg);
-  refptr->AddRef();
-  return (C_IRtcConnection*)refptr.get();
+  if (refptr.get() != nullptr)
+  {
+    refptr->AddRef();
+  }
+  return (C_IRtcConnection *)refptr.get();
 }
 
 // C_agora_refptr C_IAgoraService_createRtmpConnection(C_IAgoraService *this_,
